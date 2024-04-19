@@ -20,7 +20,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
 
         // Définir le titre de la fenêtre
-        primaryStage.setTitle("Gestion des Voitures");
+        primaryStage.setTitle("ziyara");
 
         // Définir la scène dans la fenêtre principale
         primaryStage.setScene(scene);
