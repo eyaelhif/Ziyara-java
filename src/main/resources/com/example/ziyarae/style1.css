@@ -1,0 +1,98 @@
+/* Style de base pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style pour la barre de navigation */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+/* Style pour les liens de la barre de navigation */
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+/* Style pour les boutons */
+
+
+/* Style pour les boutons primaires */
+.nav-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: #fff;
+    -fx-border-width: 3px;
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-background-radius: %20;
+}
+
+.nav-btn:hover {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000;
+}
+
+.nav-btn:active {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.logout {
+    -fx-border-width: 20px; /* Adjust the width and height as needed */
+    -fx-border-height: 20px;
+    -fx-border-radius: 50%; /* Makes the button circular */
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+
+.img-logout:hover {
+    -fx-background-color: #000;
+}
+
+.yellow-bg {
+    -fx-background-color: #fbf2b7;
+}
+.white-bg {
+    -fx-background-color: #fff;
+}
+.orange-bg{
+    -fx-background-color:  #ff8c00;
+}
+.radius {
+    -fx-background-radius: 18px;
+}
+.shadow {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5),5 ,0,0,0);
+}
+.header {
+    -fx-background-color: linear-gradient(to bottom right, #0698c53, #246861);
+    -fx-border-color: #fff;
+    -fx-border-width: 0 0 .8px 0;
+}
+.transparent {
+    -fx-background-color: transparent;
+}
+
+
+
+
+/* Style pour les cartes */
+.card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Style pour les titres de section */
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
