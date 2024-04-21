@@ -16,7 +16,10 @@ import services.TransportService;
 import java.io.File;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.sql.Date;
+import java.time.ZoneId;
 
 public class UpdateTransportController {
 
@@ -49,11 +52,21 @@ public class UpdateTransportController {
         typeField.setText(String.valueOf(transport.getTypeTransport()));
         descriptionField.setText(transport.getDescription());
         imagePathField.setText(transport.getImageTransport());
+        prixField.setText(String.valueOf(transport.getPrixTransport()));
+
+        // Assuming transport has a java.sql.Date field named 'date'
+        // Convert java.sql.Date to java.util.Date
+        java.util.Date utilDate = new java.util.Date(transport.getDateTransport().getTime());
+
+        // Convert java.util.Date to LocalDate
+        LocalDate localDate = utilDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        // Set the value of dateField
+        dateField.setValue(localDate);
 
         displayExistingImage();
-
-
     }
+
 
     public void setShowTransportController(ShowTransportController showTransportController) {
         this.showTransportController = showTransportController;
