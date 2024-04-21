@@ -11,6 +11,7 @@ import services.ReservationTService;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 
 public class UpdateReservationTransportController {
     @FXML
@@ -43,11 +44,14 @@ public class UpdateReservationTransportController {
         transportIdField.setText(String.valueOf(reservationTransport.getIdTransport()));
         pointDepartField.setText(reservationTransport.getPointDepart());
         pointArriveField.setText(reservationTransport.getPointArrive());
+        java.util.Date utilDate = new java.util.Date(reservationTransport.getDateReservationTransport().getTime());
 
-        /*// Convert java.sql.Date to LocalDate for the DatePicker
-        if (reservationTransport.getDateReservationTransport() != null) {
-            dateField.setValue(reservationTransport.getDateReservationTransport().toLocalDate());
-        }*/
+        // Convert java.util.Date to LocalDate
+        LocalDate localDate = utilDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        // Set the value of dateField
+        dateField.setValue(localDate);
+
     }
 
     public void setShowReservationTransportController(ShowReservationTransportController showReservationTransportController) {

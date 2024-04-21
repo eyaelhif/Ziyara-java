@@ -10,7 +10,7 @@ public class MainFX extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         // Load the FXML file
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/showtransport.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/showRtransport.fxml"));
         // Load FXML code into a scene
         Parent root = loader.load();
         // Put the FXML file in a scene
