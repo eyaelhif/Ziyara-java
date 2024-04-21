@@ -13,13 +13,14 @@
 
 <AnchorPane prefHeight="617.0" prefWidth="869.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowTransportController">
 
-    <TableView fx:id="tableView_transport" layoutX="281.0" layoutY="106.0" prefHeight="362.0" prefWidth="539.0" styleClass="Table-view" stylesheets="@style.css">
+    <TableView fx:id="tableView_transport" layoutX="212.0" layoutY="106.0" prefHeight="362.0" prefWidth="651.0" styleClass="Table-view" stylesheets="@style.css">
         <columns>
             <TableColumn fx:id="transportIdColumn" prefWidth="100.0" styleClass="table-column" text="Transport ID" />
             <TableColumn fx:id="typeColumn" prefWidth="100.0" styleClass="table-column" text="Type" />
             <TableColumn fx:id="descriptionColumn" prefWidth="150.0" styleClass="table-column" text="Description" />
             <TableColumn fx:id="dateColumn" prefWidth="100.0" styleClass="table-column" text="Date" />
             <TableColumn fx:id="prixColumn" prefWidth="100.0" styleClass="table-column" text="Prix" />
+            <TableColumn fx:id="imageColumn" prefWidth="100.0" styleClass="table-column" text="Image" />
         </columns>
     </TableView>
 
@@ -30,7 +31,7 @@
       </styleClass></Button>
     <Button layoutX="498.0" layoutY="504.0" mnemonicParsing="false" onAction="#updateTransport" prefHeight="36.0" prefWidth="99.0" styleClass="labbtn" text="Modifier" />
     <Button layoutX="653.0" layoutY="504.0" mnemonicParsing="false" onAction="#deleteTransport" prefHeight="36.0" prefWidth="99.0" styleClass="labbtn" stylesheets="@style.css" text="Supprimer" />
-   <AnchorPane layoutY="94.0" prefHeight="523.0" prefWidth="248.0" styleClass="sidebar" stylesheets="@style.css">
+   <AnchorPane layoutY="94.0" prefHeight="523.0" prefWidth="208.0" styleClass="sidebar" stylesheets="@style.css">
       <children>
          <Label layoutX="99.0" layoutY="127.0" prefHeight="23.0" prefWidth="84.0" text="Transport" textFill="WHITE">
             <font>

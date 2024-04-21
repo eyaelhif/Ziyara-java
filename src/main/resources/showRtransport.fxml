@@ -36,7 +36,7 @@
             </Label>
             <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="50.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../java/img/transport.png" />
+                    <Image url="@img/transport.png" />
                 </image>
             </ImageView>
             <Label layoutX="106.0" layoutY="74.0" prefHeight="23.0" prefWidth="70.0" text="Utilsateur" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
@@ -46,7 +46,7 @@
             </Label>
             <ImageView fitHeight="36.0" fitWidth="41.0" layoutX="50.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../java/img/user.png" />
+                    <Image url="@img/user.png" />
                 </image>
             </ImageView>
             <Label layoutX="106.0" layoutY="235.0" prefHeight="23.0" prefWidth="84.0" text="Boutique" textFill="#fffdfd">
@@ -56,7 +56,7 @@
             </Label>
             <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="48.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../java/img/boutique.png" />
+                    <Image url="@img/boutique.png" />
                 </image>
             </ImageView>
             <Label layoutX="106.0" layoutY="296.0" prefHeight="23.0" prefWidth="70.0" text="Pack" textFill="WHITE">
@@ -66,7 +66,7 @@
             </Label>
             <ImageView fitHeight="37.0" fitWidth="43.0" layoutX="50.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../java/img/pack.png" />
+                    <Image url="@img/pack.png" />
                 </image>
             </ImageView>
             <Label layoutX="106.0" layoutY="362.0" prefHeight="23.0" prefWidth="55.0" text="Visite" textFill="WHITE">
@@ -76,7 +76,7 @@
             </Label>
             <ImageView fitHeight="36.0" fitWidth="37.0" layoutX="51.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../java/img/visite.png" />
+                    <Image url="@img/visite.png" />
                 </image>
             </ImageView>
             <Label layoutX="106.0" layoutY="184.0" prefHeight="23.0" prefWidth="70.0" text="Guide" textFill="WHITE">
@@ -86,7 +86,7 @@
             </Label>
             <ImageView fitHeight="43.0" fitWidth="36.0" layoutX="51.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../java/img/guide.png" />
+                    <Image url="@img/guide.png" />
                 </image>
             </ImageView>
         </children>
@@ -103,5 +103,10 @@
             <Font name="Calibri" size="13.0" />
         </font>
     </TextField>
+   <ImageView fitHeight="121.0" fitWidth="125.0" layoutX="46.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@img/logo.png" />
+      </image>
+   </ImageView>
 
 </AnchorPane>

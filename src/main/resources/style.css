@@ -62,6 +62,30 @@
     -fx-font-size: 16px;
 }
 
+.hbox-background {
+    -fx-background-color: #112A33; /* Set background color */
+    -fx-padding: 10px; /* Add padding */
+}
+
+.anchor-pane {
+    -fx-background-color: grey;
+}
+.button {
+    -fx-background-color: #112A33; /* Set background color */
+    -fx-text-fill: #FFFFFF; /* Set text color to white */
+    -fx-font-size: 18px; /* Set font size */
+    -fx-padding: 8px 12px; /* Add padding */
+    -fx-background-radius: 0; /* Remove rounded corners */
+}
+
+.button:hover {
+    -fx-background-color: #224466; /* Darken the background color on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #0D1F2E; /* Darken the background color when pressed */
+}
+
 
 .label-button {
     -fx-background-color: transparent;

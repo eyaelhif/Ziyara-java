@@ -4,6 +4,8 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -11,13 +13,8 @@
     <children>
         <AnchorPane prefHeight="400.0" prefWidth="200.0" styleClass="sidebar" stylesheets="@style.css">
             <children>
-                <Label layoutX="32.0" layoutY="42.0" prefHeight="25.0" prefWidth="137.0" text="Update Transport" textFill="WHITE">
-                    <font>
-                        <Font name="Arial Bold Italic" size="34.0" />
-                    </font>
-                </Label>
               <Label layoutX="67.0" layoutY="261.0" prefHeight="25.0" prefWidth="101.0" stylesheets="@style.css" text="Description" textFill="WHITE" />
-              <Label layoutX="79.0" layoutY="207.0" prefHeight="25.0" prefWidth="41.0" stylesheets="@style.css" text="Prix" textFill="WHITE" />
+              <Label layoutX="69.0" layoutY="207.0" prefHeight="25.0" prefWidth="51.0" stylesheets="@style.css" text="Prix" textFill="WHITE" />
               <Label layoutX="70.0" layoutY="168.0" prefHeight="17.0" prefWidth="41.0" stylesheets="@style.css" text="Date" textFill="WHITE" />
               <Label layoutX="71.0" layoutY="129.0" prefHeight="25.0" prefWidth="57.0" stylesheets="@style.css" text="Type" textFill="WHITE">
                   <font>
@@ -25,14 +22,21 @@
                   </font>
               </Label>
               <Label layoutX="73.0" layoutY="95.0" prefHeight="25.0" prefWidth="35.0" text="ID" textFill="WHITE" />
+            <Label layoutX="67.0" layoutY="311.0" prefHeight="25.0" prefWidth="83.0" stylesheets="@style.css" text="Image" textFill="WHITE" />
+            <ImageView fitHeight="91.0" fitWidth="112.0" layoutX="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logo.png" />
+               </image>
+            </ImageView>
             </children>
         </AnchorPane>
         <TextField fx:id="typeField" layoutX="214.0" layoutY="129.0" prefHeight="25.0" prefWidth="372.0" />
         <TextField fx:id="descriptionField" layoutX="214.0" layoutY="242.0" prefHeight="55.0" prefWidth="372.0" />
-        <Button layoutX="363.0" layoutY="351.0" mnemonicParsing="false" onAction="#updateTransport" prefHeight="35.0" prefWidth="83.0" styleClass="labbtn" stylesheets="@style.css" text="Modifier" />
+        <Button layoutX="330.0" layoutY="347.0" mnemonicParsing="false" onAction="#updateTransport" prefHeight="41.0" prefWidth="112.0" styleClass="labbtn" stylesheets="@style.css" text="Modifier" />
         <TextField fx:id="transportIdField" layoutX="214.0" layoutY="95.0" prefHeight="25.0" prefWidth="372.0" />
         <DatePicker fx:id="dateField" layoutX="214.0" layoutY="167.0" prefHeight="25.0" prefWidth="372.0" />
         <TextField fx:id="prixField" layoutX="214.0" layoutY="204.0" prefHeight="25.0" prefWidth="372.0" />
-        <TextField fx:id="imagePathField" layoutX="218.0" layoutY="311.0" prefHeight="25.0" prefWidth="372.0" promptText="Chemin de l'image" />
+      <Button fx:id="imagePathField" layoutX="214.0" layoutY="306.0" mnemonicParsing="false" onAction="#updateImage" prefHeight="25.0" prefWidth="249.0" styleClass="labbtn" stylesheets="@style.css" text="Modifier l image" />
+      <ImageView fx:id="imageView" fitHeight="55.0" fitWidth="101.0" layoutX="475.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>

@@ -3,6 +3,7 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -35,7 +36,9 @@ public class UpdateTransportController {
     private TextField descriptionField;
 
     @FXML
-    private TextField imagePathField;
+    private Button imagePathField;
+    @FXML
+    private ImageView imageView;
     private Transport selectedTransport;
 
     private ShowTransportController showTransportController;
@@ -45,46 +48,73 @@ public class UpdateTransportController {
         transportIdField.setText(String.valueOf(transport.getIdTransport()));
         typeField.setText(String.valueOf(transport.getTypeTransport()));
         descriptionField.setText(transport.getDescription());
+        imagePathField.setText(transport.getImageTransport());
+
+        displayExistingImage();
+
 
     }
 
     public void setShowTransportController(ShowTransportController showTransportController) {
         this.showTransportController = showTransportController;
     }
+
+    private void displayExistingImage() {
+        String existingImagePath = selectedTransport.getImageTransport();
+
+        if (existingImagePath != null && !existingImagePath.isEmpty()) {
+            // Load the existing image into the ImageView
+            Image existingImage = new Image(new File(existingImagePath).toURI().toString());
+            imageView.setImage(existingImage);
+            imageView.setFitWidth(100); // Adjust the width of the image as needed
+            imageView.setPreserveRatio(true);
+        }
+    }
     @FXML
-    void updateTransport(ActionEvent event) {
+    public void updateImage() {
+        // Create a file chooser dialog
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Image File");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
+
+        // Show open file dialog
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            // Get the selected image file path
+            String imagePath = selectedFile.getAbsolutePath();
+
+            // Update the image path field
+            imagePathField.setText(imagePath);
+
+            // Load the selected image into the ImageView
+            Image image = new Image(selectedFile.toURI().toString());
+            imageView.setImage(image);
+            imageView.setFitWidth(100); // Adjust the width of the image as needed
+            imageView.setPreserveRatio(true);
+
+            // Update any UI components to display the selected image (if needed)
+            // For example, you can add the imageView to a container in your UI
+        } else {
+            showAlert("Veuillez sélectionner une image !");
+        }
+    }
+
+    @FXML
+    public void updateTransport(ActionEvent event) {
+        // Call the updateImage method to select and handle the image update
+
+        if (imagePathField.getText().isEmpty()) {
+            showAlert("Veuillez sélectionner une image !");
+            return;
+        }
+
         try {
             // Input validation
             String type = typeField.getText().trim();
             LocalDate date = dateField.getValue(); // Get the selected date from the DatePicker
             String prix = prixField.getText().trim();
             String description = descriptionField.getText().trim();
-
-            // Create a file chooser dialog
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Select Image File");
-            fileChooser.getExtensionFilters().addAll(
-                    new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
-
-            // Show open file dialog
-            File selectedFile = fileChooser.showOpenDialog(null);
-            if (selectedFile != null) {
-                // Get the selected image file path
-                String imagePath = selectedFile.getAbsolutePath();
-
-                // Update the image path field
-                imagePathField.setText(imagePath);
-
-                // Load the selected image into the ImageView
-                ImageView imageView = new ImageView();
-                Image image = new Image(selectedFile.toURI().toString());
-                imageView.setImage(image);
-                imageView.setFitWidth(100); // Adjust the width of the image as needed
-                imageView.setPreserveRatio(true);
-
-                // Update any UI components to display the selected image (if needed)
-                // For example, you can add the imageView to a container in your UI
-            }
 
             // Validate fields
             if (type.isEmpty() || date == null || prix.isEmpty() || description.isEmpty()) {
@@ -123,7 +153,6 @@ public class UpdateTransportController {
 
 
 
-    // Helper method to show alerts
     private void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information");

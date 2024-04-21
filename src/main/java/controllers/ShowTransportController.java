@@ -1,6 +1,8 @@
 package controllers;
 
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import models.Transport;
 import services.TransportService;
 import javafx.collections.FXCollections;
@@ -33,20 +35,49 @@ public class ShowTransportController {
 
     @FXML
     private TableColumn<Transport, String> descriptionColumn;
+    @FXML
+    private TableColumn<Transport, String> imageColumn;
 
     private final TransportService transportService = new TransportService();
 
     public void initialize() {
-        // Initialize columns and loadData()...
+        // Initialize columns
         transportIdColumn.setCellValueFactory(new PropertyValueFactory<>("idTransport"));
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("typeTransport"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("dateTransport"));
         prixColumn.setCellValueFactory(new PropertyValueFactory<>("prixTransport"));
+        imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageTransport"));
 
 
+        // Set a custom cell factory to display images in the imageColumn
+        imageColumn.setCellFactory(column -> {
+            return new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String imagePath, boolean empty) {
+                    super.updateItem(imagePath, empty);
+                    if (empty || imagePath == null) {
+                        setGraphic(null);
+                    } else {
+                        // Load the image from the file path
+                        Image image = new Image("file:" + imagePath);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(100); // Adjust the width of the image as needed
+                        imageView.setPreserveRatio(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+        });
+
+        // Load data into the TableView
         loadData();
     }
+
+
+
 
     public void loadData() {
         try {

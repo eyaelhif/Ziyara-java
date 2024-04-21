@@ -41,10 +41,39 @@ public class AddTransportController {
     private final TransportService transportService = new TransportService();
 
     @FXML
-    private TextField imagePathField;
+    private Button imagePathField;
+    @FXML
+    private ImageView imageView;
+    @FXML
+    public void addImage() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Image File");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
+
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            String imagePath = selectedFile.getAbsolutePath();
+            imagePathField.setText(imagePath);
+
+            Image image = new Image(selectedFile.toURI().toString());
+            imageView.setImage(image);
+            imageView.setFitWidth(100);
+            imageView.setPreserveRatio(true);
+        } else {
+            showAlert("Veuillez sélectionner une image !");
+        }
+    }
+
     @FXML
     public void addTransport(ActionEvent event) {
-        // Input validation
+        // Check if an image has been selected
+        if (imagePathField.getText().isEmpty()) {
+            showAlert("Veuillez sélectionner une image !");
+            return;
+        }
+
+        // Continue with transport addition logic
         String typeText = typeField.getText().trim();
         if (!isValidNumericInput(typeText)) {
             showAlert("Type doit être un chiffre!");
@@ -52,7 +81,6 @@ public class AddTransportController {
         }
         int type = Integer.parseInt(typeText);
 
-        // Date parsing
         Date date = java.sql.Date.valueOf(dateField.getValue());
 
         String prixText = prixField.getText().trim();
@@ -64,66 +92,32 @@ public class AddTransportController {
 
         String description = descriptionField.getText().trim();
 
-        // Create a file chooser dialog
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Select Image File");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
-
-        // Show open file dialog
-        File selectedFile = fileChooser.showOpenDialog(null);
-        if (selectedFile != null) {
-            // Get the selected image file path
-            String imagePath = selectedFile.getAbsolutePath();
-
-            // Update the image path field
-            imagePathField.setText(imagePath);
-
-            // Load the selected image into the ImageView
-            ImageView imageView = new ImageView();
-            Image image = new Image(selectedFile.toURI().toString());
-            imageView.setImage(image);
-            imageView.setFitWidth(100); // Adjust the width of the image as needed
-            imageView.setPreserveRatio(true);
-
-            // Update any UI components to display the selected image (if needed)
-            // For example, you can add the imageView to a container in your UI
-        } else {
-            showAlert("Veuillez sélectionner une image !");
-            return;
-        }
-
-        // Validate fields
-        if (description.isEmpty() || imagePathField.getText().isEmpty()) {
+        if (description.isEmpty()) {
             showAlert("Veuillez remplir tous les champs !");
             return;
         }
 
-        // Create a new Transport object
         Transport newTransport = new Transport();
         newTransport.setTypeTransport(type);
         newTransport.setDateTransport(date);
         newTransport.setPrixTransport(prix);
         newTransport.setDescription(description);
-        newTransport.setImageTransport(imagePathField.getText()); // Set image path
+        newTransport.setImageTransport(imagePathField.getText());
 
-        // Use TransportService to add the new transport to the database
         try {
             transportService.create(newTransport);
             showAlert("Transport added successfully!");
 
-            // Get the stage associated with the addTransportBtn button and close it
             Stage stage = (Stage) addTransportBtn.getScene().getWindow();
             stage.close();
 
-            // You may implement further actions here, like refreshing the view
         } catch (SQLException e) {
             showAlert("Failed to add transport: " + e.getMessage());
         }
     }
 
 
-    // Validate if input is a numeric value
+
     private boolean isValidNumericInput(String input) {
         return input.matches("\\d+");
     }
