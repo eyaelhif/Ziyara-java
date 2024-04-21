@@ -44,6 +44,7 @@ public class AddTransportController {
     private Button imagePathField;
     @FXML
     private ImageView imageView;
+    private boolean isImageSelected = false;
     @FXML
     public void addImage() {
         FileChooser fileChooser = new FileChooser();
@@ -52,6 +53,7 @@ public class AddTransportController {
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
 
         File selectedFile = fileChooser.showOpenDialog(null);
+
         if (selectedFile != null) {
             String imagePath = selectedFile.getAbsolutePath();
             imagePathField.setText(imagePath);
@@ -60,28 +62,38 @@ public class AddTransportController {
             imageView.setImage(image);
             imageView.setFitWidth(100);
             imageView.setPreserveRatio(true);
+            isImageSelected = true;
         } else {
             showAlert("Veuillez sélectionner une image !");
+
         }
+
     }
 
     @FXML
     public void addTransport(ActionEvent event) {
-        // Check if an image has been selected
-        if (imagePathField.getText().isEmpty()) {
+
+        if (!isImageSelected) {
             showAlert("Veuillez sélectionner une image !");
             return;
         }
 
-        // Continue with transport addition logic
         String typeText = typeField.getText().trim();
         if (!isValidNumericInput(typeText)) {
             showAlert("Type doit être un chiffre!");
             return;
         }
         int type = Integer.parseInt(typeText);
+        LocalDate selectedDate = dateField.getValue();
+        LocalDate currentDate = LocalDate.now();
 
-        Date date = java.sql.Date.valueOf(dateField.getValue());
+        if (selectedDate == null || selectedDate.isBefore(currentDate)) {
+            showAlert("La date doit être ultérieure à la date actuelle !");
+            return;
+        }
+
+        Date date = java.sql.Date.valueOf(selectedDate);
+
 
         String prixText = prixField.getText().trim();
         if (!isValidNumericInput(prixText)) {
