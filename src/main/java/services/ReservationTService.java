@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReservationTService {
-    private final Connection connection;
+    private  Connection connection;
 
     public ReservationTService() {
         connection = MyDatabase.getInstance().getConnection();
@@ -72,4 +72,5 @@ public class ReservationTService {
         }
         return reservations;
     }
+
 }

@@ -1,32 +1,29 @@
 package controllers;
 
-import javafx.scene.control.DatePicker;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import models.CategorieTransport;
 import models.Transport;
+import services.CategorieService;
 import services.TransportService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 
 import java.io.File;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 public class AddTransportController {
 
     @FXML
     private Button addTransportBtn;
-
-    @FXML
-    private TextField typeField;
 
     @FXML
     private DatePicker dateField;
@@ -38,6 +35,10 @@ public class AddTransportController {
     @FXML
     private TextField descriptionField;
 
+    @FXML
+    private ComboBox categorieComboBox;
+
+
     private final TransportService transportService = new TransportService();
 
     @FXML
@@ -45,6 +46,8 @@ public class AddTransportController {
     @FXML
     private ImageView imageView;
     private boolean isImageSelected = false;
+
+    private CategorieService categorieService = new CategorieService();
     @FXML
     public void addImage() {
         FileChooser fileChooser = new FileChooser();
@@ -69,21 +72,68 @@ public class AddTransportController {
         }
 
     }
+    @FXML
+    public void initialize() {
+        List<CategorieTransport> categories = categorieService.readAll();
+        ObservableList<CategorieTransport> categorieObservableList = FXCollections.observableArrayList(categories);
+        categorieComboBox.setItems(categorieObservableList);
+
+
+        categorieComboBox.setCellFactory(param -> new ListCell<CategorieTransport>() {
+            @Override
+            protected void updateItem(CategorieTransport item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty || item == null || item.getNomCategorieTransport() == null) {
+                    setText(null);
+                } else {
+                    setText(item.getNomCategorieTransport());
+                }
+            }
+        });
+
+        // Define how selected items are shown in the ComboBox dropdown
+        categorieComboBox.setButtonCell(new ListCell<CategorieTransport>() {
+            @Override
+            protected void updateItem(CategorieTransport item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty || item == null || item.getNomCategorieTransport() == null) {
+                    setText(null);
+                } else {
+                    setText(item.getNomCategorieTransport());
+                }
+            }
+        });
+    }
+
+
+
+
 
     @FXML
     public void addTransport(ActionEvent event) {
-
         if (!isImageSelected) {
             showAlert("Veuillez sélectionner une image !");
             return;
         }
 
-        String typeText = typeField.getText().trim();
-        if (!isValidNumericInput(typeText)) {
-            showAlert("Type doit être un chiffre!");
+        // Fetch categories from the service
+        List<CategorieTransport> categories = categorieService.readAll();
+
+        if (categories.isEmpty()) {
+            showAlert("Veuillez sélectionner une catégorie !");
             return;
         }
-        int type = Integer.parseInt(typeText);
+
+        // Get the selected category from the ComboBox
+        CategorieTransport selectedCategory = (CategorieTransport) categorieComboBox.getSelectionModel().getSelectedItem();
+
+        if (selectedCategory == null) {
+            showAlert("Veuillez sélectionner une catégorie !");
+            return;
+        }
+
         LocalDate selectedDate = dateField.getValue();
         LocalDate currentDate = LocalDate.now();
 
@@ -93,7 +143,6 @@ public class AddTransportController {
         }
 
         Date date = java.sql.Date.valueOf(selectedDate);
-
 
         String prixText = prixField.getText().trim();
         if (!isValidNumericInput(prixText)) {
@@ -110,7 +159,7 @@ public class AddTransportController {
         }
 
         Transport newTransport = new Transport();
-        newTransport.setTypeTransport(type);
+        newTransport.setTypeTransport(selectedCategory);
         newTransport.setDateTransport(date);
         newTransport.setPrixTransport(prix);
         newTransport.setDescription(description);

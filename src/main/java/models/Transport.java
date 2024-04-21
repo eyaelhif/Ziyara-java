@@ -6,7 +6,9 @@ public class Transport {
     private int idTransport;
     private String imageTransport;
 
-    private int typeTransport;
+    private CategorieTransport typeTransport;
+
+
 
     @Override
     public String toString() {
@@ -25,11 +27,11 @@ public class Transport {
     private double prixTransport;
     private String description;
 
-    public int getTypeTransport() {
+    public CategorieTransport getTypeTransport() {
         return typeTransport;
     }
 
-    public void setTypeTransport(int typeTransport) {
+    public void setTypeTransport(CategorieTransport typeTransport) {
         this.typeTransport = typeTransport;
     }
 
@@ -51,7 +53,7 @@ public class Transport {
     }
 
     // Constructor
-    public Transport(int idTransport,int typeTransport, Date dateTransport, double prixTransport,String description, String imageTransport) {
+    public Transport(int idTransport,CategorieTransport typeTransport, Date dateTransport, double prixTransport,String description, String imageTransport) {
         this.idTransport = idTransport;
         this.typeTransport = typeTransport;
         this.dateTransport = dateTransport;
@@ -59,7 +61,7 @@ public class Transport {
         this.description   = description;
         this.imageTransport = imageTransport;
     }
-    public Transport(int typeTransport, Date dateTransport, double prixTransport,String description) {
+    public Transport(CategorieTransport typeTransport, Date dateTransport, double prixTransport,String description) {
 
         //this.imageTransport = imageTransport;
         this.typeTransport = typeTransport;

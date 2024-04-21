@@ -17,7 +17,7 @@ public class CategorieTransport {
         this.idCategorieTransport = idCategorieTransport;
         this.nomCategorieTransport = nomCategorieTransport;
     }
-
+    public CategorieTransport(){};
     // Getters and Setters
     public int getIdCategorieTransport() {
         return idCategorieTransport;
