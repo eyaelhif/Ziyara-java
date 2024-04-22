@@ -224,11 +224,7 @@ public class AddPackController {
             throw new FileNotFoundException("Error loading image file");
         }
     }
-    @FXML
-    public void returnTo(ActionEvent actionEvent) {
-        System.out.println("Returning to Hotels CRUD");
-        RouterController.navigate("/fxml/Activities/ActivitiesCRUD.fxml");
-    }
+
 
     @FXML
     public void uploadImage(ActionEvent actionEvent) {
