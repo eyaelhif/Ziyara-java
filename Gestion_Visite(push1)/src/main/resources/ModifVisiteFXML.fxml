@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="733.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ModifVisiteController">
+    <!-- Navigation Pane -->
+    <AnchorPane prefHeight="733.0" prefWidth="260.0" style="-fx-background-color: #fc6c00" AnchorPane.leftAnchor="0.0">
+        <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="55.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@/images/ziyara.png" />
+                </image>
+            </ImageView>
+            <!-- Sidebar -->
+            <VBox layoutX="93.0" layoutY="330.0" spacing="10">
+                <!-- Sidebar Items -->
+                <Button prefHeight="25.0" prefWidth="75.0" text="Users" />
+                <Button prefHeight="25.0" prefWidth="75.0" text="Transports" />
+                <Button prefHeight="25.0" prefWidth="75.0" text="Guides" />
+                <Button prefHeight="25.0" prefWidth="75.0" text="Boutiques" />
+                <Button prefHeight="25.0" prefWidth="75.0" text="Packs" />
+                <Button prefHeight="25.0" prefWidth="75.0" text="Visites" onAction="#handleVisitesButtonClicked" />
+                <Button prefHeight="25.0" prefWidth="75.0" text="Reservation-Visites" onAction="#handleReservationVisitesButtonClicked" />
+            </VBox>
+
+        </children>
+    </AnchorPane>
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="532.0" layoutY="49.0" prefHeight="58.0" prefWidth="339.0" text="MODIFIER VISITE" textFill="#fc6c00">
+        <font>
+            <Font name="Franklin Gothic Medium Cond" size="40.0" />
+        </font>
+    </Label>
+    <Label layoutX="319.0" layoutY="156.0" text="Nom de la visite:" />
+    <TextField fx:id="visitNameField" layoutX="319.0" layoutY="178.0" prefHeight="35.0" prefWidth="400.0" />
+    <Label layoutX="319.0" layoutY="230.0" text="Description:" />
+    <TextArea fx:id="descriptionArea" layoutX="319.0" layoutY="252.0" prefHeight="77.0" prefWidth="400.0" />
+    <Label layoutX="321.0" layoutY="341.0" text="Date de la visite:" />
+    <DatePicker fx:id="datePicker" layoutX="321.0" layoutY="361.0" />
+    <Label layoutX="319.0" layoutY="398.0" text="Prix:" />
+    <TextField fx:id="priceField" layoutX="319.0" layoutY="420.0" prefHeight="26.0" prefWidth="175.0" />
+
+    <ImageView fx:id="imageView" fitHeight="264.0" fitWidth="300.0" layoutX="811.0" layoutY="161.0" styleClass="-fx-border-radius: 10 10 10 10;-fx-background-radius: 10 10 10 10;" />
+    <Button layoutX="654.0" layoutY="586.0" mnemonicParsing="false" onAction="#handleModifVisite" style="-fx-background-color: #fc6c00; -fx-background-radius: 10;" text="Modifier la visite" textFill="WHITE">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Button>
+
+    <Button layoutX="933.0" layoutY="458.0" mnemonicParsing="false" onAction="#importerImage" prefWidth="63.0" text="Importer" />
+</AnchorPane>

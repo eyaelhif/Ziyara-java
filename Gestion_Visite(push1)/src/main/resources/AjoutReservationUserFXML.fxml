@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="828.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddReservationUserController">
+
+
+
+    <AnchorPane prefHeight="828.0" prefWidth="260.0" style="-fx-background-color: rgb(252,108,0)">
+        <children>
+
+
+        </children>
+    </AnchorPane>
+    <Label layoutX="568.0" layoutY="52.0" text="AJOUTER RESERVATION VISITE" textFill="#fc6c00">
+        <font>
+            <Font name="Franklin Gothic Medium" size="24.0" />
+        </font>
+    </Label>
+    <Label layoutX="345.0" layoutY="142.0" text="Date de la visite:" />
+    <DatePicker fx:id="datePicker" layoutX="345.0" layoutY="165.0" />
+    <Label layoutX="345.0" layoutY="207.0" text="Nombre de participants:" />
+    <TextField fx:id="nombreParticipantsField" layoutX="345.0" layoutY="239.0" prefHeight="26.0" prefWidth="400.0" />
+    <Label layoutX="345.0" layoutY="278.0" text="Nom:" />
+    <TextField fx:id="nomField" layoutX="345.0" layoutY="307.0" prefHeight="26.0" prefWidth="400.0" />
+    <Label layoutX="345.0" layoutY="351.0" text="Prénom:" />
+    <TextField fx:id="prenomField" layoutX="345.0" layoutY="382.0" prefHeight="26.0" prefWidth="400.0" />
+    <Button layoutX="596.0" layoutY="575.0" mnemonicParsing="false" onAction="#handleAddReservationVisite" style="-fx-background-color: #fc6c00; -fx-background-radius: 10;" text="Ajouter la réservation" textFill="WHITE" />
+
+</AnchorPane>
