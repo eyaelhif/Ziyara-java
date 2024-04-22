@@ -62,7 +62,7 @@ body {
     -fx-background-color: #fff;
 }
 .orange-bg{
-    -fx-background-color:  #ff8c00;
+    -fx-background-color: #ff8c00;
 }
 .radius {
     -fx-background-radius: 18px;
@@ -95,4 +95,43 @@ body {
 .section-title {
     font-size: 24px;
     margin-bottom: 20px;
+}
+.table-view{
+    -fx-background-color: transparent;
+    -fx-padding:0;
+    -fx-border-color: linear-gradient(to bottom right, #ff8c00, #fbf2b7);
+    -fx-border-radius: 5px;
+    -fx-border-width: 1.5px;
+}
+.table-view .column-header{
+    -fx-background-color: #fbf2b7 ;
+    -fx-background-insets: 0 0 0 0;
+    -fx-background-radius: 5px 5px 0 0;
+}
+.table-view .column-header .filter{
+    -fx-background-color: #ff8c00;
+    -fx-size: 40px;
+}
+.table-view .column-header .label{
+    -fx-text-fill: #ff8c00;
+}
+.table-row-cell:selected {
+    -fx-background-color: #fbf2b7;
+    -fx-text-fill: #ff8c00;
+}
+
+.table-cell {
+    -fx-alignment: center; /* Alignement du contenu des cellules au centre */
+}
+.btn{
+    -fx-background-color: transparent ;
+    -fx-border-color: linear-gradient(to bottom right, #ff8c00, rgba(246, 173, 110, 0.78));
+    -fx-border-width: 3px;
+    -fx-cursor: hand;
+    -fx-text-fill: #ff8c00;
+    -fx-font-size: 14px;
+}
+.btn:hover {
+    -fx-background-color: #ff8c00;
+    -fx-text-fill: #fff;
 }

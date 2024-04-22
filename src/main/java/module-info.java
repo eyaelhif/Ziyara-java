@@ -12,6 +12,9 @@ module com.example.ziyarae {
     requires java.sql;
 
     opens com.example.ziyarae to javafx.fxml;
+    exports Controllers;
+    opens Controllers to javafx.fxml;
+    exports Entities;
 
     exports test;
     opens test to javafx.fxml;

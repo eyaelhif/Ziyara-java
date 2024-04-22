@@ -65,7 +65,7 @@ public class ServiceProduit implements IService<produit> {
                 p.setImage(resultSet.getString("image"));
                 p.setQuantite(resultSet.getInt("quantite"));
                 p.setPrix(resultSet.getFloat("prix"));
-                p.setCatt(resultSet.getInt("catt"));
+                p.setCatt(resultSet.getInt("catt_id"));
                 produits.add(p);
             }
         } catch (SQLException e) {
@@ -77,17 +77,20 @@ public class ServiceProduit implements IService<produit> {
 
     @Override
     public void update(produit produit) throws SQLException {
-        String query="UPDATE produit (nom, image, quantite, prix, catt) VALUES (?,?,?,?,?)";
+        String query="UPDATE produit set nom = ?, image = ?, quantite = ?, prix = ? WHERE id = ?";
         try (PreparedStatement statement=connection.prepareStatement(query)){
             statement.setString(1,produit.getNom());
             statement.setString(2,produit.getImage());
             statement.setInt(3,produit.getQuantite());
             statement.setFloat(4,produit.getPrix());
-            statement.setInt(5,produit.getCatt());
+            statement.setInt(5,produit.getId());
+            statement.executeUpdate();
         }
         catch (SQLException e){
             System.err.println("Error while updating product:" + e.getMessage());
         }
+
+
 
     }
 

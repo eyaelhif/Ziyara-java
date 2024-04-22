@@ -1,5 +1,5 @@
 package Entities;
-import java.time.LocalDateTime;
+
 public class produit {
 
     private int id;
@@ -8,18 +8,19 @@ public class produit {
     private int quantite;
     private float prix;
 
+    private int catt_id;
+
     public produit() {
     }
 
-    public produit( String nom, String image, int quantite, float prix, int catt) {
+    public produit( String nom, String image, int quantite, float prix, int catt_id) {
         this.nom = nom;
         this.image = image;
         this.quantite = quantite;
         this.prix = prix;
-        this.catt = catt;
+        this.catt_id = catt_id;
     }
 
-    private int catt;
 
     public int getId() {
         return id;
@@ -62,11 +63,11 @@ public class produit {
     }
 
     public int getCatt() {
-        return catt;
+        return catt_id;
     }
 
-    public void setCatt(int catt) {
-        this.catt = catt;
+    public void setCatt(int catt_id) {
+        this.catt_id = catt_id;
     }
 
     public String toString() {
@@ -76,7 +77,8 @@ public class produit {
                 ", image='" + image + '\'' +
                 ", quantite=" + quantite +
                 ", prix=" + prix +
-                ", catt=" + catt +
+                ", catt=" + catt_id +
                 '}';
     }
+
 }
