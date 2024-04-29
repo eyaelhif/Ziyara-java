@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -18,38 +17,29 @@
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER_LEFT">
          <children>
-            <ImageView fitHeight="55.0" fitWidth="63.0" onMouseClicked="#showHome" pickOnBounds="true" preserveRatio="true" styleClass="logo">
+            <ImageView fitHeight="55.0" fitWidth="81.0" onMouseClicked="#showHome" pickOnBounds="true" preserveRatio="true" styleClass="logo">
                <image>
-                  <Image url="@../images/logo.png" />
+                  <Image url="@../images/ziara.png" />
                </image>
             </ImageView>
-            <Label onMouseClicked="#showHome" prefHeight="67.0" prefWidth="233.0" text="IjaNahkiw" textFill="#107191">
+            <Label onMouseClicked="#showHome" prefHeight="64.0" prefWidth="249.0" text="Ziara" textFill="#e9aa4d">
                <font>
                   <Font name="Constantia" size="32.0" />
                </font>
             </Label>
             <Separator maxHeight="-Infinity" orientation="VERTICAL" prefHeight="42.0" prefWidth="7.0" />
-            <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="35.0" prefWidth="290.0">
-               <children>
-                  <TextField prefHeight="35.0" prefWidth="284.0" promptText="search" styleClass="round-layout" />
-                  <ImageView fitHeight="24.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/search icon.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
+            <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="35.0" prefWidth="290.0" />
             <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label prefHeight="52.0" prefWidth="131.0" text="oussama zaied" textFill="#107191">
+                  <Label prefHeight="52.0" prefWidth="131.0" text="Mohamad jomaa" textFill="#e1a132">
                      <font>
                         <Font name="Gabriola" size="25.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/405743600_7312059642151899_8736970146334239647_n.jpg" />
+                        <Image url="@../images/369647928_3116686178464447_4026227083260214305_n.jpg" />
                      </image>
                   </ImageView>
                </children>
@@ -65,7 +55,7 @@
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label prefHeight="52.0" prefWidth="131.0" text="Dashboard" textFill="#107191">
+                  <Label prefHeight="52.0" prefWidth="131.0" text="Dashboard" textFill="#e9aa4d">
                      <font>
                         <Font name="Gabriola" size="21.0" />
                      </font>
@@ -75,12 +65,7 @@
                   </Label>
                   <HBox alignment="CENTER" prefHeight="36.0" prefWidth="250.0">
                      <children>
-                        <ImageView fitHeight="39.0" fitWidth="30.0" onMousePressed="#showHome" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/home icon.png" />
-                           </image>
-                        </ImageView>
-                        <Button mnemonicParsing="false" onAction="#showHome" text="Acceuil" textFill="#107191">
+                        <Button mnemonicParsing="false" onAction="#showHome" text="Acceuil" textFill="#e9aa4d">
                            <font>
                               <Font name="Cambria" size="25.0" />
                            </font>
@@ -91,27 +76,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="25.0" fitWidth="21.0" onMousePressed="#showDisplayPublications" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/EDIT%20ICON.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Button mnemonicParsing="false" text="Admin" textFill="#107191">
-                           <font>
-                              <Font name="Candara" size="17.0" />
-                           </font>
-                           <styleClass>
-                              <String fx:value="label-like-button" />
-                              <String fx:value="image-view" />
-                           </styleClass>
-                        </Button>
-                     </children>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -119,7 +84,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="41.0" fitWidth="36.0" onMousePressed="#showDisplayPublications" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="41.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/pub icon.png" />
                            </image>
@@ -127,7 +92,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Button mnemonicParsing="false" onAction="#showDisplayPublications" text="Publications" textFill="#107191">
+                        <Button mnemonicParsing="false" onAction="#listeGuidesShow" text="Guides" textFill="#e9aa4d">
                            <font>
                               <Font name="Candara" size="20.0" />
                            </font>
@@ -144,48 +109,8 @@
                         <Insets top="10.0" />
                      </padding>
                   </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="41.0" fitWidth="36.0" onMousePressed="#showAddPublication" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/ajout%20icon.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Button mnemonicParsing="false" onAction="#showAddPublication" text="Ajouter Publication" textFill="#107191">
-                           <font>
-                              <Font name="Candara" size="19.0" />
-                           </font>
-                           <styleClass>
-                              <String fx:value="label-like-button" />
-                              <String fx:value="image-view" />
-                           </styleClass>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <Separator prefWidth="200.0" />
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="41.0" fitWidth="36.0" onMousePressed="#showDisplayPublications" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                           <image>
-                              <Image url="@../images/Quizicon.png" />
-                           </image>
-                        </ImageView>
-                        <Button mnemonicParsing="false" text="Fiche medicale" textFill="#107191">
-                           <font>
-                              <Font name="Candara" size="20.0" />
-                           </font>
-                           <styleClass>
-                              <String fx:value="label-like-button" />
-                              <String fx:value="image-view" />
-                           </styleClass>
-                        </Button>
-                     </children>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -194,25 +119,6 @@
                      </VBox.margin>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="41.0" fitWidth="36.0" onMousePressed="#showDisplayPublications" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/ajout%20icon.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Button mnemonicParsing="false" text="listeconsultation" textFill="#107191">
-                           <font>
-                              <Font name="Candara" size="20.0" />
-                           </font>
-                           <styleClass>
-                              <String fx:value="label-like-button" />
-                              <String fx:value="image-view" />
-                           </styleClass>
-                        </Button>
-                     </children>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -220,7 +126,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="41.0" fitWidth="36.0" onMousePressed="#showDisplayPublications" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="41.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/ajout%20icon.png" />
                            </image>
@@ -228,7 +134,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Button mnemonicParsing="false" text="Quizs et quetionnaire" textFill="#107191">
+                        <Button mnemonicParsing="false" onAction="#AjoutGuideDisplay" text="Ajouter Guide" textFill="#e9aa4d">
                            <font>
                               <Font name="Candara" size="18.0" />
                            </font>
@@ -245,18 +151,18 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="30.0" fitWidth="35.0" onMousePressed="#showDisplayPublications" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/activitieicon.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Button mnemonicParsing="false" text="Activite et programme" textFill="#107191">
+                        <Button mnemonicParsing="false" onAction="#listeReservationsShow" text=" liste Reservations" textFill="#e9aa4d">
                            <font>
                               <Font name="Candara" size="17.0" />
                            </font>
@@ -275,53 +181,6 @@
                   </HBox>
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="41.0" fitWidth="36.0" onMousePressed="#showDisplayPublications" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/ajout%20icon.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Button mnemonicParsing="false" text="Login" textFill="#107191">
-                           <font>
-                              <Font name="Candara" size="17.0" />
-                           </font>
-                           <styleClass>
-                              <String fx:value="label-like-button" />
-                              <String fx:value="image-view" />
-                           </styleClass>
-                        </Button>
-                     </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <Separator prefWidth="200.0" />
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="41.0" fitWidth="36.0" onMousePressed="#showDisplayPublications" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/ajout%20icon.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Button mnemonicParsing="false" text="Registration" textFill="#107191">
-                           <font>
-                              <Font name="Candara" size="17.0" />
-                           </font>
-                           <styleClass>
-                              <String fx:value="label-like-button" />
-                              <String fx:value="image-view" />
-                           </styleClass>
-                        </Button>
-                     </children>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>

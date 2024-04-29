@@ -3,11 +3,11 @@ package services;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface IService<publication> {
+public interface IService<T> {
     //4 methodes de CRUD
-    void ajouter(publication t) throws SQLException;
-    void modifier(publication t) throws SQLException;
-    void supprimer(publication t) throws SQLException;
-    List<publication> afficher() throws SQLException;
+    void ajouter(T t) throws SQLException;
+    void modifier(T t) throws SQLException;
+    void supprimer(T t) throws SQLException;
+    List<T> afficher() throws SQLException;
 
 }

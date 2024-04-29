@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="cardPane" prefHeight="489.0" prefWidth="655.0" styleClass="image-view" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Guide.CardGuide">
+
+    <children>
+        <VBox layoutX="5" layoutY="5" prefHeight="478.0" prefWidth="655.0" spacing="5" styleClass="card-container">
+            <children>
+                <ImageView fx:id="imageGuide" fitHeight="309.0" fitWidth="438.0" preserveRatio="true" />
+            <HBox prefHeight="0.0" prefWidth="290.0">
+               <children>
+                      <Label fx:id="nomGuide" prefHeight="27.0" prefWidth="162.0" styleClass="card-title" text="nom de guide" />
+                  <Label fx:id="prenomGuide" prefHeight="27.0" prefWidth="224.0" styleClass="card-title" text="prenom de guide" />
+                  <Button fx:id="btnDeleteGuide" mnemonicParsing="false" onAction="#handleDeleteGuideAction" styleClass="label-like-button" textFill="#1b0101">
+                     <HBox.margin>
+                        <Insets left="230.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/166475.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnModifierGuide" mnemonicParsing="false" onAction="#handleEditAction" prefHeight="34.0" prefWidth="27.0" styleClass="label-like-button">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/EDIT ICON.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Text fill="#d9a83e" strokeType="OUTSIDE" strokeWidth="0.0" text="langues : ">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="langue" prefHeight="20.0" prefWidth="128.0" styleClass="card-description" text="langues">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Text fill="#d9a83e" strokeType="OUTSIDE" strokeWidth="0.0" text="disponibilité : ">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="disponibilite" styleClass="card-description" text="disponibilite">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleReserveButtonAction" styleClass="card-button" stylesheets="@../../css/style.css" text="Reserver" />
+               </children></HBox>
+                <!-- Ajoutez d'autres détails que vous souhaitez montrer -->
+            </children>
+        </VBox>
+    </children>
+   <stylesheets>
+      <URL value="@../../css/cardPub.css" />
+      <URL value="@../../css/style.css" />
+   </stylesheets>
+</AnchorPane>

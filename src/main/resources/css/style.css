@@ -76,20 +76,20 @@
 /* Vous pouvez continuer à ajouter d'autres styles nécessaires pour vos boutons, labels, etc. */
 .sidebar-button {
     -fx-background-color: #e0cfb4; /* Exemple de couleur de fond pour les boutons */
-    -fx-text-fill: #287b8d; /* Exemple de couleur de texte */
+    -fx-text-fill: #eea76c; /* Exemple de couleur de texte */
     /* autres styles */
 }
 
 /* Ajoutez d'autres styles en fonction de vos besoins */
 .round-layout {
     -fx-border-radius: 50; /* This will give a rounded look with a radius of 50 */
-    -fx-border-color: #287b8d; /* Assuming you want to continue with the color from earlier */
+    -fx-border-color: #eabf9b; /* Assuming you want to continue with the color from earlier */
     -fx-border-width: 2; /* Sets the border width */
     -fx-background-radius: 50; /* This should match the border-radius if you want the background to also be rounded */
 }
 /* CSS file (style.css) */
 .image-view {
-    -fx-effect: dropshadow(gaussian, rgb(14, 80, 93), 15, 0.0, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgb(234, 191, 155), 15, 0.0, 0, 0);
     -fx-transition: all 0.5s ease-in-out;
 }
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="758.0" prefWidth="1203.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Guide.AjoutGuide">
+   <children>
+      <ImageView fitHeight="755.0" fitWidth="1293.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/BKG ADD PUB.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="215.0" layoutY="124.0" prefHeight="278.0" prefWidth="420.0" spacing="8.0" styleClass="image-view" stylesheets="@../../css/style.css">
+         <children>
+            <Label text="nomGuide" />
+            <TextField fx:id="tfNom" />
+            <Label text="prenomGuide" />
+            <TextField fx:id="tfPrenom" />
+            <Label text="imageGuide" />
+            <Button fx:id="btnChoisirImageGuide" onAction="#choisirImageGuide" styleClass="card-button" text="Choisir Image" />
+            <ImageView fx:id="imageGPreview" fitHeight="50.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
+            <Label text="disponibilite" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <CheckBox fx:id="tfDispo" mnemonicParsing="false" text="oui" />
+                  <CheckBox fx:id="tfIndispo" mnemonicParsing="false" text="non" />
+               </children>
+            </HBox>
+            <Label text="langue" />
+            <TextField fx:id="TfLangue" />
+            <Button fx:id="tfValider" onAction="#AjouterGuide" styleClass="card-button" text="Ajouter" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

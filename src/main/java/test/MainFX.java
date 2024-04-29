@@ -14,11 +14,11 @@ public class MainFX extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Front/NavBar.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Back/Dashboard.fxml"));
             mainLayout = loader.load();
             Scene scene = new Scene(mainLayout);
             stage.setScene(scene);
-            stage.setTitle("Ija Nahkiw");
+            stage.setTitle("ziyara");
             stage.show();
         } catch (Exception e) {
             e.printStackTrace(); // Print the stack trace for debugging

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<VBox fx:id="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Guide.AfficherReservationsController">
+    <Label text="List of Reservations" style="-fx-font-size: 20px;"/>
+    <TableView fx:id="reservationsTable">
+        <columns>
+            <TableColumn text="Reservation ID" fx:id="colReservationId" />
+            <TableColumn text="Guide ID" fx:id="colGuideId" />
+            <TableColumn text="Date" fx:id="colDate" />
+            <TableColumn text="Duration (Hours)" fx:id="colDuration" />
+        </columns>
+    </TableView>
+</VBox>

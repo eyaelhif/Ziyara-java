@@ -8,7 +8,7 @@
 
 .round-layout {
     -fx-border-radius: 50; /* This will give a rounded look with a radius of 50 */
-    -fx-border-color: #287b8d; /* Assuming you want to continue with the color from earlier */
+    -fx-border-color: #e17417; /* Assuming you want to continue with the color from earlier */
     -fx-border-width: 2; /* Sets the border width */
     -fx-background-radius: 50; /* This should match the border-radius if you want the background to also be rounded */
 }

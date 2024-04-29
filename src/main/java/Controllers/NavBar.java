@@ -13,9 +13,9 @@ public class NavBar {
 
 
     @FXML
-    public void showDisplayPublications() {
+    public void showDisplayGuides() {
         try {
-            Node displayPubs = FXMLLoader.load(getClass().getResource("/Front/Publication/affichagePub.fxml"));
+            Node displayPubs = FXMLLoader.load(getClass().getResource("/Front/Guide/affichageGuide.fxml"));
             mainContainer.setCenter(displayPubs);
         } catch (IOException e) {
             e.printStackTrace();
@@ -36,25 +36,16 @@ public class NavBar {
     }
 
     @FXML
-    public void showDisplayConsultationspatient() {
+    public void showListereservation() {
         try {
-            Node displayCons = FXMLLoader.load(getClass().getResource("/Front/Consultation/affichageConsultationpatient.fxml"));
+            Node displayCons = FXMLLoader.load(getClass().getResource("/Front/Guide/AfficherReservations.fxml"));
             mainContainer.setCenter(displayCons);
         } catch (IOException e) {
             e.printStackTrace();
             // Handle the exception, for example, by showing an error message
         }
     }
-    @FXML
-    public void showDisplayFiches() {
-        try {
-            Node displayFiches = FXMLLoader.load(getClass().getResource("/Front/FicheMedicale/AffichageFiche.fxml"));
-            mainContainer.setCenter(displayFiches);
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Handle the exception, for example, by showing an error message
-        }
-    }
+
 
     @FXML
     public void showHome() {
@@ -66,6 +57,7 @@ public class NavBar {
             // Handle the exception, for example, by showing an error message
         }
     }
+
 
     @FXML
     private void initialize() {
