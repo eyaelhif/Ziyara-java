@@ -101,21 +101,20 @@ public class UserFrontController {
     }
 
     public void changerMDP(ActionEvent actionEvent) {
-
         try {
             // Load the updateuserfront.fxml file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/updateUserFront.fxml"));
             Parent root = loader.load();
 
-            // Create a new stage
-            Stage stage = new Stage();
+            // Access the current stage
+            Stage stage = (Stage) editUserFront.getScene().getWindow();
+
+            // Set the scene of the current stage to the new scene
             stage.setScene(new Scene(root));
             stage.setTitle("Update User");
-
-            // Show the stage
-            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }

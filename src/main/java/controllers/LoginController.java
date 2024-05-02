@@ -4,10 +4,10 @@ package controllers;
 import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -15,16 +15,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.Statuser;
-import services.RemembermeService;
 import services.UserService;
-import models.User;
 import services.statuserService;
-import utils.MyDatabase;
+import models.User;
+import java.util.prefs.Preferences;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
@@ -61,21 +60,25 @@ public class LoginController {
     @FXML
     private Button registerBtn;
 
+
+
     @FXML
     private ChoiceBox<String> choiceBoxRoles;
 
     private UserService userService;
     private statuserService statuserService;
-    private RemembermeService remembermeService;
+
 
     private Connection connection;
 
     private static User currentUser;
-    private static boolean isChecked;
-    private static User rememberedUser;
+
 
     @FXML
-    private CheckBox rememberMe;
+    private CheckBox rememberMeCheckbox;
+
+    private static final String REMEMBER_ME_EMAIL_KEY = "rememberMeEmail";
+    private static final String REMEMBER_ME_PASSWORD_KEY = "rememberMePassword";
 
 
 
@@ -84,22 +87,26 @@ public class LoginController {
 
     @FXML
     private void initialize() throws SQLException {
+
+        rememberMeCheckbox.setSelected(true);
         registerBtn.setOnAction(this::handleRegisterButtonAction);
         si_loginBtn.setOnAction(this::handleLoginButtonAction);
         userService = new UserService();
         statuserService = new statuserService();
-        remembermeService = new RemembermeService();
+
         ObservableList<String> roles = FXCollections.observableArrayList("admin", "client");
         choiceBoxRoles.setItems(roles);
-        int rememberMeIdUser =remembermeService.getIdUserFromFirstRecord();
-        User rmUser = userService.getUserById(rememberMeIdUser);
-        System.out.println("remember me" + rmUser);
-        if (rmUser != null)
-        {
-            System.out.println("remember me not null");
-            si_email.setText(rmUser.getEmail());
-            si_password.setText(rmUser.getPassword());
+
+        // Load saved login info if remember me is checked
+        if (rememberMeCheckbox.isSelected()) {
+            String savedEmail = getSavedEmail();
+            String savedPassword = getSavedPassword();
+            if (savedEmail != null && savedPassword != null) {
+                si_email.setText(savedEmail);
+                si_password.setText(savedPassword);
+            }
         }
+
 
 
 
@@ -235,6 +242,13 @@ public class LoginController {
     private void handleLoginButtonAction(ActionEvent event) {
         String email = si_email.getText();
         String password = si_password.getText();
+        boolean rememberMe = rememberMeCheckbox.isSelected();
+        if (rememberMe) {
+            saveLoginInfo(email, password);
+        } else {
+            clearLoginInfo();
+        }
+
 
 
 
@@ -244,13 +258,9 @@ public class LoginController {
                 String r = user.getRoles();
                 System.out.println(user);
                 setCurrentUser(user);
-                isChecked = rememberMe.isSelected();
-                System.out.println(isChecked);
-                //remember me
-                if (isChecked) {
-                    setRememberedUser(user);
-                    remembermeService.setIdUserInFirstRecord(user.getId());
-                }
+
+
+
                 // Check user role
                 if (user.getRoles().contains("admin")) {
                     System.out.println("Redirecting to admin dashboard...");
@@ -328,14 +338,53 @@ public class LoginController {
         return currentUser;
     }
 
-    private static void setRememberedUser(User user) {
-        rememberedUser = user;
+
+
+
+    public void forgotPassword(ActionEvent actionEvent) {
+
+        try {
+            // Load the FXML file
+            Parent root = FXMLLoader.load(getClass().getResource("/forgotPassword.fxml"));
+
+            // Create a new stage
+            Stage stage = new Stage();
+
+            // Set the scene with the loaded FXML file
+            stage.setScene(new Scene(root));
+
+            // Show the stage
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
-    // Method to get the current user
-    public static User getRememberedUser() {
-        return rememberedUser;
+
+
+    private void saveLoginInfo(String email, String password) {
+        Preferences prefs = Preferences.userNodeForPackage(LoginController.class);
+        prefs.put(REMEMBER_ME_EMAIL_KEY, email);
+        prefs.put(REMEMBER_ME_PASSWORD_KEY, password);
     }
+
+    private void clearLoginInfo() {
+        Preferences prefs = Preferences.userNodeForPackage(LoginController.class);
+        prefs.remove(REMEMBER_ME_EMAIL_KEY);
+        prefs.remove(REMEMBER_ME_PASSWORD_KEY);
+    }
+
+    private String getSavedEmail() {
+        Preferences prefs = Preferences.userNodeForPackage(LoginController.class);
+        return prefs.get(REMEMBER_ME_EMAIL_KEY, null);
+    }
+
+    private String getSavedPassword() {
+        Preferences prefs = Preferences.userNodeForPackage(LoginController.class);
+        return prefs.get(REMEMBER_ME_PASSWORD_KEY, null);
+    }
+
 
 
 }

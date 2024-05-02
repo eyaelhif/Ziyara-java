@@ -170,4 +170,42 @@ public class UserService implements IService<User>{
             }
         }
     }
+
+
+
+    public int getUserIdByEmail(String email) throws SQLException {
+        String sql = "SELECT id FROM user WHERE email = ?";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, email);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("id");
+                } else {
+                    return -1; // Return -1 if no user found with the given email
+                }
+            }
+        }
+    }
+
+
+
+    public void updatePasswordById(int userId, String newPassword) throws SQLException {
+        String sql = "UPDATE user SET password = ? WHERE id = ?";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, newPassword);
+            ps.setInt(2, userId);
+
+            int rowsUpdated = ps.executeUpdate();
+
+            if (rowsUpdated == 0) {
+                // Handle case where no rows were updated
+                // Optionally, throw an exception or log a message
+            }
+        } catch (SQLException e) {
+            // Handle SQL exceptions
+            e.printStackTrace();
+            // Optionally, throw a custom exception or log a more detailed error message
+            throw e;
+        }
+    }
 }

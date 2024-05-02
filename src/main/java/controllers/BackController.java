@@ -100,10 +100,9 @@ public class BackController {
     private void loadScene(String fxmlFile) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
-            Stage stage = new Stage();
+            Stage stage = (Stage) btnBoutique.getScene().getWindow(); // Get the current stage
             stage.setTitle("Ziyara");
             stage.setScene(new Scene(root));
-            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -18,7 +18,7 @@
             <Image url="@images/logo.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutY="115.0" prefHeight="523.0" prefWidth="202.0" styleClass="sidebar" stylesheets="@style.css">
+      <AnchorPane layoutY="115.0" prefHeight="523.0" prefWidth="228.0" styleClass="sidebar" stylesheets="@style.css">
          <children>
             <Circle fill="#eef1f4" layoutX="39.0" layoutY="478.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fill="#eef1f4" layoutX="40.0" layoutY="356.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
@@ -68,14 +68,38 @@
                   <Image url="@images/logout.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnHome" layoutX="78.0" layoutY="65.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="112.0" styleClass="style.css" text="Home" />
-            <Button fx:id="btnUtilisateur" layoutX="78.0" layoutY="121.0" mnemonicParsing="false" prefWidth="112.0" text="Gestion utilisateur" />
-            <Button fx:id="btnTransport" layoutX="78.0" layoutY="173.0" mnemonicParsing="false" prefWidth="112.0" text="Gestion transport" />
-            <Button fx:id="btnGuide" layoutX="78.0" layoutY="224.0" mnemonicParsing="false" prefWidth="112.0" text="Gestion guide" />
-            <Button fx:id="btnBoutique" layoutX="78.0" layoutY="283.0" mnemonicParsing="false" prefWidth="112.0" text="Gestion boutique" />
-            <Button fx:id="btnPack" layoutX="78.0" layoutY="342.0" mnemonicParsing="false" prefWidth="112.0" text="Gestion pack" />
-            <Button fx:id="btnVisite" layoutX="78.0" layoutY="406.0" mnemonicParsing="false" prefWidth="112.0" text="Gestion visite" />
-            <Button fx:id="btnLogout" layoutX="78.0" layoutY="465.0" mnemonicParsing="false" prefWidth="112.0" text="Logout" />
+            <Button fx:id="btnHome" layoutX="78.0" layoutY="65.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #2262C6;" styleClass="style.css" text="Home" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="btnUtilisateur" layoutX="78.0" layoutY="121.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="144.0" style="-fx-background-color: #2262C6;" text="Gestion utilisateur" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="btnTransport" layoutX="78.0" layoutY="173.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="144.0" style="-fx-background-color: #2262C6;" text="Gestion transport" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="btnGuide" layoutX="78.0" layoutY="224.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #2262C6;" text="Gestion guide" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="btnBoutique" layoutX="78.0" layoutY="283.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #2262C6;" text="Gestion boutique" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="btnPack" layoutX="78.0" layoutY="342.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: #2262C6;" text="Gestion pack" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="btnVisite" layoutX="78.0" layoutY="406.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: #2262C6;" text="Gestion visite" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="btnLogout" layoutX="78.0" layoutY="465.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: #2262C6;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
       </AnchorPane>
       <Text layoutX="244.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion Utilisateur">
