@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="242.0" prefWidth="344.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Visite.CardReservationController">
+    <styleClass>
+        <String fx:value="reservation-item" />
+        <String fx:value="shadow" />
+    </styleClass>
+    <children>
+        <GridPane layoutX="17.0" layoutY="24.0" prefHeight="146.0" prefWidth="310.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="140.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.0" minWidth="10.0" prefWidth="170.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints maxHeight="83.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="83.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="83.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="83.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <!-- Texts -->
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date réservation :" GridPane.rowIndex="3" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom :" GridPane.rowIndex="2" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de participants :" GridPane.rowIndex="4" />
+                <!-- Labels -->
+                <Label fx:id="resdat" prefHeight="18.0" prefWidth="230.0" text="Date réservation :" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label fx:id="prenomLabel" prefHeight="18.0" prefWidth="230.0" text="Prénom :" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label fx:id="participantCountLabel" prefHeight="18.0" prefWidth="230.0" text="Nombre de participants :" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom :" GridPane.rowIndex="1" />
+                <Label fx:id="nomLabel" prefHeight="18.0" prefWidth="230.0" text="Nom :" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            </children>
+        </GridPane>
+      <Button layoutX="111.0" layoutY="194.0" mnemonicParsing="false" onAction="#cancelReservation" style="-fx-background-radius: 10; -fx-background-color: #FC6C00FF;" text="Annuler Reservation" textFill="WHITE" />
+    </children>
+</AnchorPane>

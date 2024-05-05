@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="bord" prefHeight="600.0" prefWidth="970.0" style="-fx-background-color: #fbf3e4;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Visite.ModifReservationController">
+
+    <children>
+        <Pane layoutX="92.0" layoutY="10.0" prefHeight="578.0" prefWidth="812.0" style="-fx-background-radius: 15; -fx-background-color: white;">
+            <children>
+                <Label layoutX="203.0" layoutY="14.0" text="Ajouter nouvelle réservation">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btnSignup" layoutX="348.0" layoutY="555.0" mnemonicParsing="false" onAction="#handleModifReservation" prefHeight="10.0" prefWidth="171.0" style="-fx-background-color: #4b3e3e; -fx-background-radius: 8;" text="Nouvelle Réservation" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <TextField fx:id="prenomField" layoutX="431.0" layoutY="189.0" prefHeight="50.0" prefWidth="295.0" promptText="Prenom" style="-fx-background-radius: 7;">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </TextField>
+                <ComboBox fx:id="userIdComboBox" layoutX="75.0" layoutY="404.0" prefHeight="25.0" prefWidth="295.0" promptText="Sélectionner User" style="-fx-background-radius: 7;">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <!-- Add more type options as needed -->
+                        </FXCollections>
+                    </items>
+
+                </ComboBox>
+                <Label layoutX="75.0" layoutY="267.0" prefHeight="50.0" prefWidth="295.0" style="-fx-background-radius: 5px;" text="Date de réservation">
+                    <font>
+                        <Font name="System Bold" size="19.0" />
+                    </font>
+                </Label>
+
+                <Label layoutX="438.0" layoutY="162.0" text="Prenom">
+                    <font>
+                        <Font name="System Bold" size="19.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="datePicker" layoutX="75.0" layoutY="316.0" prefHeight="50.0" prefWidth="295.0" promptText="Date" />
+                <ComboBox fx:id="visiteIdComboBox" layoutX="436.0" layoutY="404.0" prefHeight="25.0" prefWidth="285.0" promptText="Sélectionner Visite" style="-fx-background-radius: 7;">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList" />
+                    </items>
+                </ComboBox>
+            <Label layoutX="75.0" layoutY="140.0" prefHeight="50.0" prefWidth="295.0" style="-fx-background-radius: 5px;" text="Nom">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nomField" layoutX="75.0" layoutY="190.0" prefHeight="50.0" prefWidth="295.0" promptText="Nom" style="-fx-background-radius: 7;">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="431.0" layoutY="266.0" prefHeight="50.0" prefWidth="295.0" style="-fx-background-radius: 5px;" text="Nombre De Participants">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nombreParticipantsField" layoutX="431.0" layoutY="316.0" prefHeight="50.0" prefWidth="295.0" promptText="Nombre de participants" style="-fx-background-radius: 7;">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            </children>
+        </Pane>
+        <ImageView fx:id="btnReturn" fitHeight="44.0" fitWidth="48.0" layoutX="14.0" layoutY="20.0" onMouseClicked="#returnTo" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/images/heart.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>
